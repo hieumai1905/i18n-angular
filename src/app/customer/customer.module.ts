@@ -6,6 +6,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {CustomerEditComponent} from "./customer-edit/customer-edit.component";
 import {CustomerAddComponent} from "./customer-add/customer-add.component";
 import {NgxPaginationModule} from "ngx-pagination";
+import {TranslateModule} from "@ngx-translate/core";
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {NgxPaginationModule} from "ngx-pagination";
     CustomerEditComponent,
     CustomerAddComponent,
     NgxPaginationModule,
-    FormsModule
+    FormsModule,
+    TranslateModule
   ]
 })
 export class CustomerModule {

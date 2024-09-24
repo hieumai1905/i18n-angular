@@ -1,0 +1,17 @@
+{
+  "language": {
+    "select": "Chọn ngôn ngữ",
+    "en": "Tiếng Anh",
+    "vi": "Tiếng Việt"
+  },
+  "HOME": {
+    "TITLE": "Ứng dụng mẫu!"
+  },
+  "customer": {
+    "list": "Danh sách khách hàng",
+    "add": "Thêm khách hàng",
+    "edit": "Chỉnh sửa khách hàng",
+    "search": "Tìm kiếm",
+    "new": "Khách hàng mới"
+  }
+}

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Customer} from "../../models/Customer";
 import {CustomerService} from "../../services/customer.service";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-customer-list',
@@ -17,7 +18,7 @@ export class CustomerListComponent implements OnInit {
 
   customers: Array<Customer> = [];
 
-  constructor(private customerService: CustomerService) {
+  constructor(private customerService: CustomerService, public translate: TranslateService) {
   }
 
   ngOnInit() {

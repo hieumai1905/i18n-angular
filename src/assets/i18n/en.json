@@ -1,0 +1,17 @@
+{
+  "language": {
+    "select": "Select language",
+    "en": "English",
+    "vi": "Vietnamese"
+  },
+  "HOME": {
+    "TITLE": "Sample app!"
+  },
+  "customer": {
+    "list": "Customer list",
+    "add": "Add customer",
+    "edit": "Edit customer",
+    "search": "Search",
+    "new": "New customer"
+  }
+}

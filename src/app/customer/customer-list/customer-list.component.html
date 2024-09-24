@@ -1,7 +1,22 @@
+<div class="container pt-4">
+  <div class="row">
+    <div class="col-md-2">
+      <div class="form-group">
+        <label class="fw-bold text-uppercase mt-2" for="language">{{
+            'language.select' | translate
+          }}</label>
+        <select class="form-control mt-2" id="language" #langSelect (change)="translate.use(langSelect.value)">
+          <option *ngFor="let lang of translate.getLangs()" [value]="lang"
+                  [selected]="lang === translate.currentLang">{{ 'language.' + lang | translate }}
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
 <div class="container p-5">
   <div class="row">
     <div class="col-md-10">
-      <h1>Customer List</h1>
+      <h1>{{ 'customer.list' | translate }}</h1>
       <table class="table table-bordered">
         <thead>
         <tr>
@@ -30,12 +45,12 @@
       <!-- Pagination controls -->
       <pagination-controls (pageChange)="page = $event" [autoHide]="true"></pagination-controls>
 
-      <a [routerLink]="['/customers/create']">New customer</a>
+      <a [routerLink]="['/customers/create']">{{'customer.new' | translate}}</a>
     </div>
     <div class="col-md-2">
-      <h1>Search</h1>
+      <h1>{{'customer.search' | translate}}</h1>
       <input type="text" class="form-control" [(ngModel)]="searchText" placeholder="Search by name">
-      <button class="btn btn-primary mt-2" (click)="searchCustomer()">Search</button>
+      <button class="btn btn-primary mt-2" (click)="searchCustomer()">{{'customer.search' | translate}}</button>
     </div>
   </div>
 </div>
