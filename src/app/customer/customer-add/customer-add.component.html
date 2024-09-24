@@ -1,0 +1,53 @@
+<div class="container p-5">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Add Customer</h1>
+      <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+
+        <!-- Name Field -->
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" formControlName="name" class="form-control" id="name">
+          <div *ngIf="createForm.get('name')?.touched || createForm.get('name')?.dirty" class="text-danger">
+            <small *ngIf="createForm.get('name')?.errors?.['required']">
+              Name is required.
+            </small>
+            <small *ngIf="createForm.get('name')?.errors?.['minlength']">
+              Name must be at least 3 characters long.
+            </small>
+          </div>
+        </div>
+
+        <!-- Email Field -->
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" formControlName="email" class="form-control" id="email">
+          <div
+            *ngIf="createForm.get('email')?.invalid && (createForm.get('email')?.touched || createForm.get('email')?.dirty)"
+            class="text-danger">
+            <div *ngIf="createForm.get('email')?.errors?.['required']">Email is required.</div>
+            <div *ngIf="createForm.get('email')?.errors?.['email']">Please enter a valid email.</div>
+          </div>
+        </div>
+
+        <!-- Phone Field -->
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input type="text" formControlName="phone" class="form-control" id="phone">
+          <div
+            *ngIf="createForm.get('phone')?.invalid && (createForm.get('phone')?.touched || createForm.get('phone')?.dirty)"
+            class="text-danger">
+            Phone is required.
+          </div>
+        </div>
+        <br>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary" [disabled]="createForm.invalid">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <br>
+  <i class="text-danger" *ngIf="message != ''">{{message}}<br></i>
+  <a [routerLink]="['/customers']">Back to list</a>
+</div>

@@ -1,0 +1,41 @@
+<div class="container p-5">
+  <div class="row">
+    <div class="col-md-10">
+      <h1>Customer List</h1>
+      <table class="table table-bordered">
+        <thead>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let customer of customers | paginate: { itemsPerPage: pageSize, currentPage: page}">
+          <td>{{ customer.id }}</td>
+          <td>{{ customer.name }}</td>
+          <td>{{ customer.email }}</td>
+          <td>{{ customer.phone }}</td>
+          <td>
+            <a class="btn btn-warning btn-sm" [routerLink]="['/customers/edit', customer.id]">Edit</a>
+            |
+            <button (click)="deleteCustomer(customer.id)" class="btn btn-danger btn-sm">Delete</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+      <!-- Pagination controls -->
+      <pagination-controls (pageChange)="page = $event" [autoHide]="true"></pagination-controls>
+
+      <a [routerLink]="['/customers/create']">New customer</a>
+    </div>
+    <div class="col-md-2">
+      <h1>Search</h1>
+      <input type="text" class="form-control" [(ngModel)]="searchText" placeholder="Search by name">
+      <button class="btn btn-primary mt-2" (click)="searchCustomer()">Search</button>
+    </div>
+  </div>
+</div>
